@@ -41,7 +41,7 @@ public class BrowserDriverFactory {
 
 
 	public WebDriver createDriverGrid() {
-		String hubUrl = "http://core-s-uft01:4444/wd/hub";
+		String hubUrl = "http://local:4445/wd/hub";
 		DesiredCapabilities capabilities = new DesiredCapabilities();
 		System.out.println("Starting " + browser + " on grid");
 
