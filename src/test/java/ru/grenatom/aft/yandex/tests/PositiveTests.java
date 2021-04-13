@@ -23,8 +23,7 @@ public class PositiveTests extends BaseTest {
         log.info("[l]Executed PositiveTests->Login");
 
         // open the page
-        String url = "passport.yandex.ru";
-
+        String url = "https://passport.yandex.ru";
         driver.get(url);
 
         LoginPage loginPage = new LoginPage(driver, log);
@@ -38,9 +37,7 @@ public class PositiveTests extends BaseTest {
 
         // open the page
         String url = "https://passport.yandex.ru";
-
         driver.get(url);
-
 
         LoginPage loginPage = new LoginPage(driver, log);
         loginPage.CheckPage();
