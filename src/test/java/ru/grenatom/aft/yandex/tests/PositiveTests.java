@@ -41,7 +41,6 @@ public class PositiveTests extends BaseTest {
 
         driver.get(url);
 
-        driver.switchTo().alert().dismiss();
 
         LoginPage loginPage = new LoginPage(driver, log);
         loginPage.CheckPage();

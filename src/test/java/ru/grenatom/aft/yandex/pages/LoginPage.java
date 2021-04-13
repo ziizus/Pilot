@@ -27,7 +27,7 @@ public class LoginPage extends PageFactory {
 
     public void CheckPage() {
         try {
-            Assert.assertTrue(new FluentWait<WebDriver>(driver).until(ExpectedConditions.elementToBeClickable(logOnButton)).isDisplayed(), "[A]Login page is opened.");
+            Assert.assertTrue(new FluentWait<WebDriver>(driver).until(ExpectedConditions.elementToBeClickable(loginInput)).isDisplayed(), "[A]Login page is opened.");
             log.info("[l]Login page is opened.");
         } catch (Throwable ext) {
             Assert.fail("[A]Login page is not opened.");
