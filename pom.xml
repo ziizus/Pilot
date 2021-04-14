@@ -84,12 +84,12 @@
                     <version>2.21.0</version>
                     <configuration>
 
-                        <systemProperties>
+                        <!--systemProperties>
                             <property>
                                 <name>allure.results.directory</name>
                                 <value>${project.build.directory}/allure-results</value>
                             </property>
-                        </systemProperties>
+                        </systemProperties-->
 
                         <testFailureIgnore>false</testFailureIgnore>
                         <argLine>
