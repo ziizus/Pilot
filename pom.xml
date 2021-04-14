@@ -88,7 +88,7 @@
                         <systemProperties>
                             <property>
                                 <name>allure.results.directory</name>
-                                <value>c:\temp\target\allure-results</value>
+                                <value>${basedir}/target/allure-results</value>
                             </property>
                         </systemProperties>
 
@@ -164,12 +164,8 @@
                 <configuration>
                     <version>1.5.4</version>
                     <properties>
-
-                        <allureResultsDirectory>${basedir}/allure-results
-                        </allureResultsDirectory>
-
+                        <allureResultsDirectory>${basedir}/target/allure-results</allureResultsDirectory>
                     </properties>
-
                 </configuration>
 
             </plugin>
