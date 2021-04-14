@@ -136,7 +136,7 @@
                     <configuration>
                         <source>1.8</source>
                         <target>1.8</target>
-                        <encoding>Cp1252</encoding>
+                        <encoding>UTF-8</encoding>
                     </configuration>
 
                 </plugin>
@@ -156,7 +156,7 @@
                     <version>1.5.4</version>
                     <properties>
 
-                        <allureResultsDirectory>${basedir}/target/allure-results
+                        <allureResultsDirectory>${basedir}/allure-results
                         </allureResultsDirectory>
 
                     </properties>
