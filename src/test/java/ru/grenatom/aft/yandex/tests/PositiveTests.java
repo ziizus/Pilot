@@ -1,5 +1,6 @@
 package ru.grenatom.aft.yandex.tests;
 
+import org.testng.Assert;
 import org.testng.ITestContext;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Optional;
@@ -7,6 +8,8 @@ import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 import ru.grenatom.aft.yandex.pages.LoginPage;
 import ru.grenatom.aft.base.BaseTest;
+
+import java.io.File;
 
 public class PositiveTests extends BaseTest {
 
@@ -55,6 +58,30 @@ public class PositiveTests extends BaseTest {
 
         log.info("[l]Executed PositiveTests->Test2");
         Login2();
+    }
+
+    @Test
+    public void Test3() throws InterruptedException {
+        
+
+        /*
+        File file = new File("lib", "jacob-1.15-M4-x64.dll"); //path to the jacob dll
+        System.setProperty(LibraryLoader.JACOB_DLL_PATH, file.getAbsolutePath());
+
+        /*
+        AutoItX x = new AutoItX();
+        String notepad = "Untitled - Notepad";
+        String testString = "this is a test.";
+        x.run("notepad.exe");
+        x.winActivate(notepad);
+        x.winWaitActive(notepad);
+        x.send(testString);
+        Assert.assertTrue(x.winExists(notepad, testString));
+        x.winClose(notepad, testString);
+        x.winWaitActive("Notepad");
+        x.send("{ALT}n");
+        Assert.assertFalse(x.winExists(notepad, testString));
+         */
     }
 
 }
