@@ -14,6 +14,13 @@ public class BaseTest {
 	protected WebDriver driver;
 	protected Logger log;
 
+	/**
+	 *
+	 * Returns if the JVM is 32 or 64 bit version
+	 */
+	public static String jvmBitVersion(){
+		return System.getProperty("sun.arch.data.model");
+	}
 
 	protected void setUp(@Optional("chrome") String browser, @Optional("local") String environment, ITestContext ctx) {
 

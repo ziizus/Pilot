@@ -8,6 +8,9 @@ import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 import ru.grenatom.aft.yandex.pages.LoginPage;
 import ru.grenatom.aft.base.BaseTest;
+import java.io.File;
+import autoitx4java.AutoItX;
+import com.jacob.com.LibraryLoader;
 
 import java.io.File;
 
@@ -62,26 +65,34 @@ public class PositiveTests extends BaseTest {
 
     @Test
     public void Test3() throws InterruptedException {
-        
 
-        /*
-        File file = new File("lib", "jacob-1.15-M4-x64.dll"); //path to the jacob dll
+        String jacobDllVersionToUse;
+        if (jvmBitVersion().contains("32")){
+            jacobDllVersionToUse = "jacob-1.20-x86.dll";
+        }
+        else {
+            jacobDllVersionToUse = "jacob-1.20-x64.dll";
+        }
+
+        File file = new File("lib", jacobDllVersionToUse);
         System.setProperty(LibraryLoader.JACOB_DLL_PATH, file.getAbsolutePath());
 
-        /*
         AutoItX x = new AutoItX();
-        String notepad = "Untitled - Notepad";
-        String testString = "this is a test.";
-        x.run("notepad.exe");
-        x.winActivate(notepad);
-        x.winWaitActive(notepad);
-        x.send(testString);
-        Assert.assertTrue(x.winExists(notepad, testString));
-        x.winClose(notepad, testString);
-        x.winWaitActive("Notepad");
-        x.send("{ALT}n");
-        Assert.assertFalse(x.winExists(notepad, testString));
-         */
+        x.run("calc.exe");
+        x.winActivate("Калькулятор");
+        x.winWaitActive("Калькулятор");
+//Enter 3
+        x.controlClick("Калькулятор", "", "133") ;
+        Thread.sleep(1000);
+//Enter +
+        x.controlClick("Калькулятор", "", "93") ;
+        Thread.sleep(1000);
+//Enter 3
+        x.controlClick("Калькулятор", "", "133") ;
+        Thread.sleep(1000);
+//Enter =
+        x.controlClick("Калькулятор", "", "121") ;
+
     }
 
 }
