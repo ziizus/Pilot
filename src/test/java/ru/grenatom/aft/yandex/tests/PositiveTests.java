@@ -13,6 +13,7 @@ import autoitx4java.AutoItX;
 import com.jacob.com.LibraryLoader;
 
 import java.io.File;
+import java.nio.file.Path;
 
 public class PositiveTests extends BaseTest {
 
@@ -78,6 +79,8 @@ public class PositiveTests extends BaseTest {
         System.setProperty(LibraryLoader.JACOB_DLL_PATH, file.getAbsolutePath());
 
         AutoItX x = new AutoItX();
+
+        /*
         x.run("calc.exe");
         x.winActivate("Калькулятор");
         x.winWaitActive("Калькулятор");
@@ -92,6 +95,40 @@ public class PositiveTests extends BaseTest {
         Thread.sleep(1000);
 //Enter =
         x.controlClick("Калькулятор", "", "121") ;
+         */
+
+        String sChromeTitle = "[REGEXPTITLE:data:.*]";
+        if (x.winWait(sChromeTitle, null, 5)) {
+            log.info("Chrome появился");
+
+            x.sleep(1000);
+            x.send("^s", false);
+
+            String sDialogTitle = "[CLASS:#32770; INSTANCE:1]";
+            if (x.winWait(sDialogTitle, null, 5 )) {
+                log.info("Окно сохранения файла появилось");
+
+
+                x.controlClick(sDialogTitle, null, "[CLASS:Button; INSTANCE:3]");
+
+                if (x.winWaitClose(sChromeTitle, null, 5)){
+                    log.info("Окно сохранения файла закрыто");
+                }
+                else{
+                    log.error("Окно сохранения файла не закрыто.");
+                }
+
+            }
+            else{
+                log.error("Окно сохранения файла не появилось.");
+            }
+        }
+        else{
+            log.error("Chrome не открылся");
+        }
+
+
+
 
     }
 
