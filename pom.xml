@@ -69,17 +69,20 @@
             <groupId>com.jacob</groupId>
             <artifactId>jacob</artifactId>
             <version>1.20</version>
-            <scope>system</scope>
+            <type>jar</type>
             <systemPath>${project.basedir}/lib/jacob.jar</systemPath>
+            <optional>true</optional>
         </dependency>
 
         <dependency>
             <groupId>autoitx4java.AutoItX</groupId>
             <artifactId>AutoItX</artifactId>
             <version>1.6.0_23-b05</version>
-            <scope>system</scope>
+            <type>jar</type>
             <systemPath>${project.basedir}/lib/AutoItX4Java.jar</systemPath>
+            <optional>true</optional>
         </dependency>
+
 
     </dependencies>
 
