@@ -1,8 +1,11 @@
 package ru.grenatom.aft.base;
 
+import java.io.ByteArrayInputStream;
 import io.qameta.allure.Attachment;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import org.testng.ITestContext;
@@ -23,6 +26,17 @@ public class BaseTest {
 		return System.getProperty("sun.arch.data.model");
 	}
 
+
+	@Attachment(value = "Screenshot", type = "image/png")
+	public byte[] screenshot() {
+		return ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);
+
+	}
+
+	protected byte[] createAttachment() {
+		String content = "attachmentContent";
+		return content.getBytes();
+	}
 
 
 

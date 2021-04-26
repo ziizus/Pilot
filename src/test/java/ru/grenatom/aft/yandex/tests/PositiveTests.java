@@ -67,8 +67,10 @@ public class PositiveTests extends BaseTest {
     }
 
     @Step
-    public void Step1()
-    {log.info("This is Step1");}
+    public void Step1(){
+        log.info("This is Step1");
+        createAttachment();
+    }
 
     @Test
     @Description("Первый тест")
@@ -122,9 +124,6 @@ public class PositiveTests extends BaseTest {
             log.error("Chrome не открылся");
         }
 
-
-
-
+        createAttachment();
     }
-
 }
