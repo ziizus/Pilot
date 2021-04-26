@@ -70,7 +70,7 @@
             <artifactId>jacob</artifactId>
             <version>1.20</version>
             <type>jar</type>
-            <systemPath>${project.basedir}/lib/jacob-1.20.jar</systemPath>
+            <systemPath>${project.basedir}/lib/jacob.jar</systemPath>
             <scope>system</scope>
             <optional>true</optional>
         </dependency>
@@ -80,7 +80,7 @@
             <artifactId>AutoItX</artifactId>
             <version>1.6.0_23-b05</version>
             <type>jar</type>
-            <systemPath>${project.basedir}/lib/AutoItX4Java-1.6.0_23-b05.jar</systemPath>
+            <systemPath>${project.basedir}/lib/AutoItX4Java.jar</systemPath>
             <scope>system</scope>
             <optional>true</optional>
         </dependency>
