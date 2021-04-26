@@ -37,7 +37,11 @@ public class PositiveTests extends BaseTest {
 
         LoginPage loginPage = new LoginPage(driver, log);
         loginPage.CheckPage();
+        createAttachment();
+
         loginPage.Login() ;
+        createAttachment();
+
     }
 
     protected void Login2() {
@@ -50,7 +54,10 @@ public class PositiveTests extends BaseTest {
 
         LoginPage loginPage = new LoginPage(driver, log);
         loginPage.CheckPage();
+        createAttachment();
+
         loginPage.Login() ;
+        createAttachment();
     }
 
     @Test
@@ -66,16 +73,10 @@ public class PositiveTests extends BaseTest {
         Login2();
     }
 
-    @Step
-    public void Step1(){
-        log.info("This is Step1");
-        createAttachment();
-    }
 
     @Test
-    @Description("Первый тест")
+    @Description("Starting Test3")
     public void Test3() throws InterruptedException {
-        Step1();
 
         String jacobDllVersionToUse;
         if (jvmBitVersion().contains("32")){
