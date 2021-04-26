@@ -65,6 +65,22 @@
             <version>2.13.0</version>
         </dependency>
 
+        <dependency>
+            <groupId>com.jacob</groupId>
+            <artifactId>jacob</artifactId>
+            <version>1.20</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/jacob.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>autoitx4java.AutoItX</groupId>
+            <artifactId>AutoItX</artifactId>
+            <version>1.6.0_23-b05</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/AutoItX4Java.jar</systemPath>
+        </dependency>
+
     </dependencies>
 
     <build>
@@ -91,9 +107,6 @@
                     </suiteXmlFiles>
                 </configuration>
             </plugin>
-
-
-
         </plugins>
 
     </build>
