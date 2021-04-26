@@ -1,6 +1,8 @@
 package ru.grenatom.aft.base;
 
 import java.io.ByteArrayInputStream;
+
+import io.qameta.allure.Allure;
 import io.qameta.allure.Attachment;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -28,14 +30,11 @@ public class BaseTest {
 
 
 	@Attachment(value = "Screenshot", type = "image/png")
-	public byte[] screenshot() {
-		return ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);
-
-	}
-
 	protected byte[] createAttachment() {
 		String content = "attachmentContent";
+		Allure.addAttachment("Any text", new ByteArrayInputStream(((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES)));
 		return content.getBytes();
+
 	}
 
 

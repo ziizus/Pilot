@@ -102,6 +102,7 @@ public class PositiveTests extends BaseTest {
 
             if (x.winWait(sDialogTitle, null, 5 )) {
                 log.info("Окно сохранения файла появилось");
+                createAttachment();
 
                 x.controlClick(sDialogTitle, null, "[CLASS:Button; INSTANCE:3]");
                 x.sleep(1000);
@@ -110,20 +111,24 @@ public class PositiveTests extends BaseTest {
 
                 if (x.winWait(sDialogTitle, null, 0 )){
                     log.info("Окно сохранения файла закрыто");
+                    createAttachment();
                 }
                 else{
+                    createAttachment();
                     log.error("Окно сохранения файла не закрыто.");
                 }
 
             }
             else{
+                createAttachment();
                 log.error("Окно сохранения файла не появилось.");
             }
         }
         else{
+            createAttachment();
             log.error("Chrome не открылся");
         }
 
-        createAttachment();
+
     }
 }
