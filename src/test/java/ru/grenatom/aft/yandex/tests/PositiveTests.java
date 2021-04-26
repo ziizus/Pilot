@@ -1,5 +1,7 @@
 package ru.grenatom.aft.yandex.tests;
 
+import io.qameta.allure.Description;
+import io.qameta.allure.Step;
 import org.testng.Assert;
 import org.testng.ITestContext;
 import org.testng.annotations.BeforeMethod;
@@ -64,8 +66,14 @@ public class PositiveTests extends BaseTest {
         Login2();
     }
 
+    @Step
+    public void Step1()
+    {log.info("This is Step1");}
+
     @Test
+    @Description("Первый тест")
     public void Test3() throws InterruptedException {
+        Step1();
 
         String jacobDllVersionToUse;
         if (jvmBitVersion().contains("32")){
@@ -80,22 +88,6 @@ public class PositiveTests extends BaseTest {
 
         AutoItX x = new AutoItX();
 
-        /*
-        x.run("calc.exe");
-        x.winActivate("Калькулятор");
-        x.winWaitActive("Калькулятор");
-//Enter 3
-        x.controlClick("Калькулятор", "", "133") ;
-        Thread.sleep(1000);
-//Enter +
-        x.controlClick("Калькулятор", "", "93") ;
-        Thread.sleep(1000);
-//Enter 3
-        x.controlClick("Калькулятор", "", "133") ;
-        Thread.sleep(1000);
-//Enter =
-        x.controlClick("Калькулятор", "", "121") ;
-         */
 
         String sChromeTitle = "[REGEXPTITLE:data.*]";
         if (x.winWait(sChromeTitle, null, 5)) {

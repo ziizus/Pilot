@@ -1,5 +1,6 @@
 package ru.grenatom.aft.base;
 
+import io.qameta.allure.Attachment;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebDriver;
@@ -21,6 +22,9 @@ public class BaseTest {
 	public static String jvmBitVersion(){
 		return System.getProperty("sun.arch.data.model");
 	}
+
+
+
 
 	protected void setUp(@Optional("chrome") String browser, @Optional("local") String environment, ITestContext ctx) {
 
