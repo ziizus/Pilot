@@ -27,6 +27,8 @@ public class PositiveTests extends BaseTest {
         super.setUp(browser, environment, ctx);
     }
 
+    @Step
+    @Description("Step: Login")
     protected void Login() {
 
         log.info("[l]Executed PositiveTests->Login");
@@ -44,6 +46,8 @@ public class PositiveTests extends BaseTest {
 
     }
 
+    @Step
+    @Description("Step: Login2")
     protected void Login2() {
 
         log.info("[l]Executed PositiveTests->Login");
@@ -75,7 +79,7 @@ public class PositiveTests extends BaseTest {
 
 
     @Test
-    @Description("Starting Test3")
+    @Description("This is test description")
     public void Test3() throws InterruptedException {
 
         String jacobDllVersionToUse;
