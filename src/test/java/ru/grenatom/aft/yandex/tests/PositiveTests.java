@@ -28,8 +28,8 @@ public class PositiveTests extends BaseTest {
     }
 
     @Step
-    @Description("Step: Login")
-    protected void Login() {
+    @Description("Step: Login1")
+    protected void Login1() {
 
         log.info("[l]Executed PositiveTests->Login");
 
@@ -65,12 +65,14 @@ public class PositiveTests extends BaseTest {
     }
 
     @Test
+    @Description("This is Test 1")
     public void Test1()throws InterruptedException {
         log.info("[l]Executed PositiveTests->Test1");
-        Login();
+        Login1();
     }
 
     @Test
+    @Description("This is Test 2")
     public void Test2() throws InterruptedException {
 
         log.info("[l]Executed PositiveTests->Test2");
@@ -79,7 +81,7 @@ public class PositiveTests extends BaseTest {
 
 
     @Test
-    @Description("This is test description")
+    @Description("This is Test 3")
     public void Test3() throws InterruptedException {
 
         String jacobDllVersionToUse;
