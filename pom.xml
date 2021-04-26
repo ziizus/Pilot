@@ -72,7 +72,6 @@
             <type>jar</type>
             <systemPath>${project.basedir}/lib/jacob.jar</systemPath>
             <scope>system</scope>
-            <optional>true</optional>
         </dependency>
 
         <dependency>
@@ -82,7 +81,6 @@
             <type>jar</type>
             <systemPath>${project.basedir}/lib/AutoItX4Java.jar</systemPath>
             <scope>system</scope>
-            <optional>true</optional>
         </dependency>
 
 
