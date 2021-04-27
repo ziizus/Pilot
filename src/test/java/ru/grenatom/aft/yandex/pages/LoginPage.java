@@ -53,11 +53,12 @@ public class LoginPage extends PageFactory {
 
     public void Login() {
 
-        loginInput.sendKeys("zenyajan");
+        loginInput.sendKeys("user");
         loginInput.submit();
 
-        //passwordInput.sendKeys("andbazan");
+        //passwordInput.sendKeys("password");
         //logOnButton.click();
+        
         /*
         MainPage mainPage = new MainPage(driver, log);
         mainPage.CheckPage();
