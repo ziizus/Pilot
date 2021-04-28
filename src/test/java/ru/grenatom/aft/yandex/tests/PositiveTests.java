@@ -132,7 +132,6 @@ public class PositiveTests extends BaseTest {
             createAttachment();
             log.error("Chrome не открылся");
         }
-
-
     }
+
 }
