@@ -112,11 +112,8 @@ public class PositiveTests extends BaseTest {
                 createAttachment();
 
                 x.controlClick(sDialogTitle, null, "[CLASS:Button; INSTANCE:3]");
-                x.sleep(1000);
 
-
-
-                if (x.winWait(sDialogTitle, null, 0 )){
+                if (x.winWaitClose(sDialogTitle, null, 5)){
                     log.info("Окно сохранения файла закрыто");
                     createAttachment();
                 }
