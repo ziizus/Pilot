@@ -1,0 +1,16 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name="PositiveTestSuite" verbose="1" parallel="tests" thread-count="1">
+	<parameter name="environment" value="local"> </parameter>
+
+	<test name="PositiveTest-Android">
+		<parameter name="browser" value="android"> </parameter>
+		<classes>
+			<class name="ru.grenatom.aft.yandex.tests.PositiveTestsOnDevices"/>
+		</classes>
+	</test>
+
+</suite>
+
+
+

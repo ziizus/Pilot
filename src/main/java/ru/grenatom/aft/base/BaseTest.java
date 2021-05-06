@@ -42,16 +42,18 @@ public class BaseTest {
 
 		// Create Driver
 		Assert.assertTrue(true, "[A]Starting setUp" );
+
+		BrowserDriverFactory factory;
+
 		try{
-			BrowserDriverFactory factory = new BrowserDriverFactory(browser);
+			factory = new BrowserDriverFactory(browser);
 		}
 		catch(Throwable ext1) {
 			log.info("[l]Ошибка : " + ext1.getMessage());
 			Assert.fail("[A]Ошибка", ext1);
+			return;
 		}
 
-
-		BrowserDriverFactory factory = new BrowserDriverFactory(browser);
 		if (environment.equals("grid")) {
 			try{
 				driver = factory.createDriverGrid();
@@ -59,6 +61,7 @@ public class BaseTest {
 			catch(Throwable ext2) {
 				log.info("[l]Ошибка при factory.createDriverGrid();: " + ext2.getMessage());
 				Assert.fail("[A]Ошибка", ext2);
+				return;
 			}
 
 		} else {
@@ -66,9 +69,10 @@ public class BaseTest {
 			try{
 				driver = factory.createDriver();
 			}
-			catch(Throwable ext2) {
-				log.info("[l]Ошибка при factory.createDriverGrid();: " + ext2.getMessage());
-				Assert.fail("[A]Ошибка", ext2);
+			catch(Throwable ext3) {
+				//log.info("[l]Ошибка при factory.createDriverGrid();: " + ext3.getMessage());
+				Assert.fail("[A]Ошибка", ext3);
+				return;
 			}
 		}
 
@@ -79,14 +83,12 @@ public class BaseTest {
 		setCurrentThreadName();
 		String testName = ctx.getCurrentXmlTest().getName();
 		log = LogManager.getLogger(testName);
-
 	}
 
 
 	@AfterMethod(alwaysRun = true)
 	protected void tearDown() {
 		// Closing driver
-		log.info("[l]Closing driver");
 		Assert.assertTrue(true, "[A]Closing driver");
 		driver.quit();
 	}

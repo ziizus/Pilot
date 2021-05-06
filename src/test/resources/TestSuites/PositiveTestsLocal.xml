@@ -17,6 +17,13 @@
 		</classes>
 	</test>
 
+	<test name="PositiveTestEOSZ-Android">
+		<parameter name="device" value="android"> </parameter>
+		<classes>
+			<class name="ru.grenatom.aft.yandex.tests.PositiveTestsOnDevices"/>
+		</classes>
+	</test>
+
 </suite>
 
 

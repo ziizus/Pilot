@@ -2,7 +2,6 @@ package ru.grenatom.aft.yandex.tests;
 
 import io.qameta.allure.Description;
 import io.qameta.allure.Step;
-import org.testng.Assert;
 import org.testng.ITestContext;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Optional;
@@ -14,8 +13,6 @@ import java.io.File;
 import autoitx4java.AutoItX;
 import com.jacob.com.LibraryLoader;
 
-import java.io.File;
-import java.nio.file.Path;
 
 public class PositiveTests extends BaseTest {
 
@@ -121,7 +118,6 @@ public class PositiveTests extends BaseTest {
                     createAttachment();
                     log.error("Окно сохранения файла не закрыто.");
                 }
-
             }
             else{
                 createAttachment();
