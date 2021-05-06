@@ -50,7 +50,7 @@ public class BaseTest {
 		}
 		catch(Throwable ext1) {
 			log.info("[l]Ошибка : " + ext1.getMessage());
-			Assert.fail("[A]Ошибка", ext1);
+			Assert.fail("[A]Ошибка 1", ext1);
 			return;
 		}
 
@@ -60,7 +60,7 @@ public class BaseTest {
 			}
 			catch(Throwable ext2) {
 				log.info("[l]Ошибка при factory.createDriverGrid();: " + ext2.getMessage());
-				Assert.fail("[A]Ошибка", ext2);
+				Assert.fail("[A]Ошибка 2", ext2);
 				return;
 			}
 
@@ -70,14 +70,15 @@ public class BaseTest {
 				driver = factory.createDriver();
 			}
 			catch(Throwable ext3) {
-				//log.info("[l]Ошибка при factory.createDriverGrid();: " + ext3.getMessage());
-				Assert.fail("[A]Ошибка", ext3);
+				Assert.fail("[A]Ошибка 3", ext3);
 				return;
 			}
 		}
 
+		/*
 		// maximize browser window
 		driver.manage().window().maximize();
+		 */
 
 		// Set up test name and Logger
 		setCurrentThreadName();

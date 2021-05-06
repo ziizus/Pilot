@@ -1,7 +1,6 @@
 package ru.grenatom.aft.yandex.tests;
 
-import autoitx4java.AutoItX;
-import com.jacob.com.LibraryLoader;
+
 import io.qameta.allure.Description;
 import io.qameta.allure.Step;
 import org.testng.ITestContext;
@@ -28,6 +27,7 @@ public class PositiveTestsOnDevices extends BaseTest {
 
         log.info("[l]Executed PositiveTestsOnDevices->Login");
 
+
     }
 
     @Test
@@ -36,6 +36,4 @@ public class PositiveTestsOnDevices extends BaseTest {
         log.info("[l]Executed PositiveTestsOnDevices->Test1");
         Login();
     }
-
-
 }
