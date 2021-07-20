@@ -80,8 +80,9 @@ public class PositiveTests extends BaseTest {
     }
 
 
-    @Test
+    @Test(enabled=false)
     @Description("This is Test 3")
+
     public void Test3() throws InterruptedException {
 
         String jacobDllVersionToUse;

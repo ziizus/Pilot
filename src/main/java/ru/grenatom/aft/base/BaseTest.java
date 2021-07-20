@@ -46,7 +46,7 @@ public class BaseTest {
 			BrowserDriverFactory factory = new BrowserDriverFactory(browser);
 		}
 		catch(Throwable ext1) {
-			log.info("[l]Ошибка : " + ext1.getMessage());
+			//log.info("[l]Ошибка : " + ext1.getMessage());
 			Assert.fail("[A]Ошибка", ext1);
 		}
 
@@ -57,7 +57,7 @@ public class BaseTest {
 				driver = factory.createDriverGrid();
 			}
 			catch(Throwable ext2) {
-				log.info("[l]Ошибка при factory.createDriverGrid();: " + ext2.getMessage());
+				//log.info("[l]Ошибка при factory.createDriverGrid();: " + ext2.getMessage());
 				Assert.fail("[A]Ошибка", ext2);
 			}
 
@@ -67,7 +67,7 @@ public class BaseTest {
 				driver = factory.createDriver();
 			}
 			catch(Throwable ext2) {
-				log.info("[l]Ошибка при factory.createDriverGrid();: " + ext2.getMessage());
+				//log.info("[l]Ошибка при factory.createDriverGrid();: " + ext2.getMessage());
 				Assert.fail("[A]Ошибка", ext2);
 			}
 		}
