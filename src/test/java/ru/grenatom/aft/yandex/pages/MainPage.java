@@ -8,9 +8,10 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.FluentWait;
 import org.testng.Assert;
+import ru.yandex.qatools.htmlelements.element.HtmlElement;
 
 
-public class MainPage extends PageFactory {
+public class MainPage extends HtmlElement {
     protected WebDriver driver;
     protected Logger log;
 
@@ -18,7 +19,7 @@ public class MainPage extends PageFactory {
     private WebElement welcomeText;
 
     public MainPage(WebDriver driver, Logger log) {
-        initElements(driver, this);
+        //initElements(driver, this);
         this.driver = driver;
         this.log = log;
     }

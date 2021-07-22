@@ -1,38 +1,30 @@
 package ru.grenatom.aft.yandex.pages;
 
+import io.qameta.allure.Step;
 import org.apache.logging.log4j.Logger;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.FluentWait;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
+import ru.yandex.qatools.htmlelements.element.HtmlElement;
 
-public class LoginPage extends PageFactory {
+public class LoginPage extends HtmlElement {
     protected WebDriver driver;
     protected Logger log;
 
     public LoginPage(WebDriver driver) {
-        initElements(driver, this);
+        PageFactory.initElements(driver, this);
         this.driver = driver;
     }
 
     public LoginPage(WebDriver driver, Logger log) {
-        initElements(driver, this);
+        PageFactory.initElements(driver, this);
         this.driver = driver;
         this.log = log;
-    }
-
-
-    public void CheckPage() {
-        try {
-            Assert.assertTrue(new FluentWait<WebDriver>(driver).until(ExpectedConditions.elementToBeClickable(logOnButton)).isDisplayed(), "[A]Login page is opened.");
-            log.info("[l]Login page is opened.");
-        } catch (Throwable ext) {
-            Assert.fail("[A]Login page is not opened.");
-            log.info("[l]Login page is not opened.");
-        }
     }
 
 
@@ -51,19 +43,38 @@ public class LoginPage extends PageFactory {
         PageFactory.initElements(driver, this);
     }
 
+    @Step("Ввести логин и пароль пользователя")
     public void Login() {
+        try {
 
-        loginInput.sendKeys("user");
-        loginInput.submit();
+            loginInput.sendKeys("user");
+            loginInput.submit();
 
-        //passwordInput.sendKeys("password");
-        //logOnButton.click();
-        
-        /*
-        MainPage mainPage = new MainPage(driver, log);
-        mainPage.CheckPage();
-        return mainPage;
-         */
+            //passwordInput.sendKeys("password");
+            //logOnButton.click();
 
+            /*
+            MainPage mainPage = new MainPage(driver, log);
+            mainPage.CheckPage();
+            return mainPage;
+             */
+        } catch (Throwable ext) {
+            Assert.fail("[A]Ошибка при вводе логина и пароля");
+            log.info("[l]Ошибка при вводе логина и пароля.");
+        }
+
+    }
+
+    @Step("Проверить, что страница логина открыта")
+    public void CheckPage() {
+        try {
+            WebDriverWait wait = new WebDriverWait(driver, 10);
+            wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@class='passp-button passp-sign-in-button']/button") ));
+            Assert.assertTrue (true,  "[A]Login page is opened.");
+            log.info("[l]Login page is opened.");
+        } catch (Throwable ext) {
+            Assert.fail("[A]Login page is not opened.");
+            log.info("[l]Login page is not opened.");
+        }
     }
 }

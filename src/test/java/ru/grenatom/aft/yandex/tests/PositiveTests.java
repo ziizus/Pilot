@@ -14,8 +14,7 @@ import java.io.File;
 import autoitx4java.AutoItX;
 import com.jacob.com.LibraryLoader;
 
-import java.io.File;
-import java.nio.file.Path;
+
 
 public class PositiveTests extends BaseTest {
 
@@ -94,26 +93,35 @@ public class PositiveTests extends BaseTest {
 
         File file = new File("lib", jacobDllVersionToUse);
         System.setProperty(LibraryLoader.JACOB_DLL_PATH, file.getAbsolutePath());
-
         AutoItX x = new AutoItX();
-
 
         String sChromeTitle = "[REGEXPTITLE:data.*]";
         if (x.winWait(sChromeTitle, null, 5)) {
             log.info("Chrome появился");
 
-            x.sleep(1000);
+            //x.sleep(1000);
             x.send("^s", false);
 
             String sDialogTitle = "[CLASS:#32770; INSTANCE:1]";
 
-            if (x.winWait(sDialogTitle, null, 5 )) {
+            if (x.winWait(sDialogTitle, null, 10 )) {
                 log.info("Окно сохранения файла появилось");
                 createAttachment();
 
-                x.controlClick(sDialogTitle, null, "[CLASS:Button; INSTANCE:3]");
+                x.controlClick("Сохранение", null, "[CLASS:Button; INSTANCE:3]");
 
-                if (x.winWaitClose(sDialogTitle, null, 5)){
+
+                int i=5; boolean res=false;
+                do{
+
+                    if (x.controlCommandIsVisible("Сохранение", null, "[CLASS:Button; INSTANCE:3]")==false){
+                        res=true;
+                        break;
+                    }
+                    i--;
+                }while (i>0);
+
+                if (res){
                     log.info("Окно сохранения файла закрыто");
                     createAttachment();
                 }

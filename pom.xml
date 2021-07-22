@@ -58,6 +58,20 @@
             <version>1.7.25</version>
         </dependency>
 
+
+        <dependency>
+            <groupId>ru.yandex.qatools.htmlelements</groupId>
+            <artifactId>htmlelements-java</artifactId>
+            <version>1.20.0</version>
+        </dependency>
+
+
+        <dependency>
+            <groupId>ru.yandex.qatools.htmlelements</groupId>
+            <artifactId>htmlelements-matchers</artifactId>
+            <version>1.20.0</version>
+        </dependency>
+
         <!-- Allure -->
         <dependency>
             <groupId>io.qameta.allure</groupId>
