@@ -1,10 +1,10 @@
 package ru.grenatom.aft.yandex.pages;
 
+import io.qameta.allure.Step;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.FluentWait;
 import org.testng.Assert;
@@ -24,7 +24,7 @@ public class MainPage extends HtmlElement {
         this.log = log;
     }
 
-
+    @Step("Проверить открытие главной страницы страницы")
     public void CheckPage() {
         try {
             Assert.assertTrue(new FluentWait<WebDriver>(driver).until(ExpectedConditions.elementToBeClickable(welcomeText)).isDisplayed(), "[A]Main page is opened.");

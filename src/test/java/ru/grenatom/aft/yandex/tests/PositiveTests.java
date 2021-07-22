@@ -2,7 +2,6 @@ package ru.grenatom.aft.yandex.tests;
 
 import io.qameta.allure.Description;
 import io.qameta.allure.Step;
-import org.testng.Assert;
 import org.testng.ITestContext;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Optional;
@@ -63,26 +62,31 @@ public class PositiveTests extends BaseTest {
         createAttachment();
     }
 
+    @Step("This is my step")
+    public void stepFun1(){
+        ;
+    }
+
     @Test
     @Description("This is Test 1")
-    public void Test1()throws InterruptedException {
+    public void test1()throws InterruptedException {
         log.info("[l]Executed PositiveTests->Test1");
+        stepFun1();
         Login1();
     }
 
     @Test
     @Description("This is Test 2")
-    public void Test2() throws InterruptedException {
+    public void test2() throws InterruptedException {
 
         log.info("[l]Executed PositiveTests->Test2");
         Login2();
     }
 
 
-    @Test(enabled=false)
+    @Test
     @Description("This is Test 3")
-
-    public void Test3() throws InterruptedException {
+    public void test3() throws InterruptedException {
 
         String jacobDllVersionToUse;
         if (jvmBitVersion().contains("32")){
@@ -141,6 +145,8 @@ public class PositiveTests extends BaseTest {
             createAttachment();
             log.error("Chrome не открылся");
         }
+        createAttachment();
     }
+
 
 }
