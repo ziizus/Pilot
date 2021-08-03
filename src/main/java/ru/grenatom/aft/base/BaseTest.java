@@ -19,24 +19,6 @@ public class BaseTest {
 	protected WebDriver driver;
 	protected Logger log;
 
-	/**
-	 *
-	 * Returns if the JVM is 32 or 64 bit version
-	 */
-	public static String jvmBitVersion(){
-		return System.getProperty("sun.arch.data.model");
-	}
-
-
-	@Attachment(value = "Screenshot", type = "image/png")
-	protected byte[] createAttachment() {
-		String content = "attachmentContent";
-		Allure.addAttachment("Screenshot:", new ByteArrayInputStream(((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES)));
-		return content.getBytes();
-
-	}
-
-
 
 	protected void setUp(@Optional("chrome") String browser, @Optional("local") String environment, ITestContext ctx) {
 
@@ -47,7 +29,7 @@ public class BaseTest {
 			BrowserDriverFactory factory = new BrowserDriverFactory(browser);
 		}
 		catch(Throwable ext1) {
-			//log.info("[l]Ошибка : " + ext1.getMessage());
+
 			Assert.fail("[A]Ошибка", ext1);
 		}
 
@@ -80,6 +62,8 @@ public class BaseTest {
 		setCurrentThreadName();
 		String testName = ctx.getCurrentXmlTest().getName();
 		log = LogManager.getLogger(testName);
+		SuperPageFactory.setWebDriver(driver);
+		SuperPageFactory.setLoger(log);
 
 	}
 
@@ -101,6 +85,23 @@ public class BaseTest {
 		if (!threadName.contains(threadId)) {
 			thread.setName(threadName + " " + threadId);
 		}
+	}
+
+	/**
+	 *
+	 * Returns if the JVM is 32 or 64 bit version
+	 */
+	public static String jvmBitVersion(){
+		return System.getProperty("sun.arch.data.model");
+	}
+
+
+	@Attachment(value = "Screenshot", type = "image/png")
+	protected byte[] createAttachment() {
+		String content = "attachmentContent";
+		Allure.addAttachment("Screenshot:", new ByteArrayInputStream(((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES)));
+		return content.getBytes();
+
 	}
 
 }

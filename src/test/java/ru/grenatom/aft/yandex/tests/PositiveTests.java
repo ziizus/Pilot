@@ -25,71 +25,57 @@ public class PositiveTests extends BaseTest {
         super.setUp(browser, environment, ctx);
     }
 
-    @Step
-    @Description("Step: Login1")
+    @Step("Вход в систему 1-ым способом")
+    @Description("Вход в систему 1-ым способом")
     protected void Login1() {
 
         log.info("[l]Executed PositiveTests->Login");
 
-        // open the page
+
         String url = "https://passport.yandex.ru";
         driver.get(url);
 
-        LoginPage loginPage = new LoginPage(driver, log);
-        loginPage.CheckPage();
-        createAttachment();
+        LoginPage loginPage = new LoginPage();
+        loginPage.checkPage();
+        loginPage.login();
 
-        loginPage.Login() ;
-        createAttachment();
 
     }
 
-    @Step
-    @Description("Step: Login2")
+    @Step("Открытие ссылки")
+    protected LoginPage startURL() {
+        String url = "https://passport.yandex.ru";
+        driver.get(url);
+       return new LoginPage();
+    }
+
+    @Step("Вход в систему 2-ым способом")
+    @Description("Вход в систему 2-ым способом")
     protected void Login2() {
-
-        log.info("[l]Executed PositiveTests->Login");
-
-        // open the page
-        String url = "https://passport.yandex.ru";
-        driver.get(url);
-
-        LoginPage loginPage = new LoginPage(driver, log);
-        loginPage.CheckPage();
-        createAttachment();
-
-        loginPage.Login() ;
-        createAttachment();
+        startURL().checkPage().login();
     }
 
-    @Step("This is my step")
-    public void stepFun1(){
-        ;
-    }
+
 
     @Test
-    @Description("This is Test 1")
+    @Description("Логин в систему 1-ым способом")
     public void test1()throws InterruptedException {
-        log.info("[l]Executed PositiveTests->Test1");
-        stepFun1();
         Login1();
     }
 
     @Test
-    @Description("This is Test 2")
+    @Description("Логин в систему 2-ым способом")
     public void test2() throws InterruptedException {
-
-        log.info("[l]Executed PositiveTests->Test2");
         Login2();
     }
 
 
     @Test
-    @Description("This is Test 3")
+    @Description("Проверка работы AutoIt")
     public void test3() throws InterruptedException {
 
         String jacobDllVersionToUse;
-        if (jvmBitVersion().contains("32")){
+        if (BaseTest.jvmBitVersion().contains("32")){
             jacobDllVersionToUse = "jacob-1.20-x86.dll";
         }
         else {

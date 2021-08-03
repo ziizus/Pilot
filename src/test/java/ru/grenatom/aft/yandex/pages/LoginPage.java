@@ -1,80 +1,61 @@
 package ru.grenatom.aft.yandex.pages;
 
+
 import io.qameta.allure.Step;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
+
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
-import ru.yandex.qatools.htmlelements.element.HtmlElement;
+import ru.grenatom.aft.base.SuperPageFactory;
+import ru.yandex.qatools.htmlelements.annotations.Name;
 
-public class LoginPage extends HtmlElement {
-    protected WebDriver driver;
-    protected Logger log;
 
-    public LoginPage(WebDriver driver) {
-        PageFactory.initElements(driver, this);
-        this.driver = driver;
+public class LoginPage extends SuperPageFactory {
+
+    public LoginPage(){
+        initElements(getDriver(), this);
     }
-
-    public LoginPage(WebDriver driver, Logger log) {
-        PageFactory.initElements(driver, this);
-        this.driver = driver;
-        this.log = log;
-    }
-
-
+    @Name("Логин")
     @FindBy(id = "passp-field-login")
     private WebElement loginInput;
 
+    @Name("Пароль")
     @FindBy(id = "passp-field-passwd")
     private WebElement passwordInput;
 
+    @Name("Войти")
     @FindBy(xpath = "//div[@class='passp-button passp-sign-in-button']/button")
     private WebElement logOnButton;
 
 
-    public void setDriver(WebDriver driver) {
-        this.driver = driver;
-        PageFactory.initElements(driver, this);
-    }
 
     @Step("Ввести логин и пароль пользователя")
-    public void Login() {
+    public void login() {
         try {
-
             loginInput.sendKeys("user");
             loginInput.submit();
-
-            //passwordInput.sendKeys("password");
-            //logOnButton.click();
-
-            /*
-            MainPage mainPage = new MainPage(driver, log);
-            mainPage.CheckPage();
-            return mainPage;
-             */
         } catch (Throwable ext) {
-            Assert.fail("[A]Ошибка при вводе логина и пароля");
-            log.info("[l]Ошибка при вводе логина и пароля.");
+            Assert.fail("Ошибка при вводе логина и пароля");
         }
-
     }
 
     @Step("Проверить, что страница логина открыта")
-    public void CheckPage() {
+    public LoginPage checkPage() {
         try {
-            WebDriverWait wait = new WebDriverWait(driver, 10);
+            WebDriverWait wait = new WebDriverWait(getDriver(), 10);
             wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@class='passp-button passp-sign-in-button']/button") ));
-            Assert.assertTrue (true,  "[A]Login page is opened.");
-            log.info("[l]Login page is opened.");
+            Assert.assertTrue (true,  "Открыта страница логина");
+            createAttachment();
+            return this;
         } catch (Throwable ext) {
-            Assert.fail("[A]Login page is not opened.");
-            log.info("[l]Login page is not opened.");
+            Assert.fail("Не открыта страница логина");
+            createAttachment();
+            return null;
         }
     }
 }
