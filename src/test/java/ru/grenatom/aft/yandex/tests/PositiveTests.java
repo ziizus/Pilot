@@ -134,5 +134,11 @@ public class PositiveTests extends BaseTest {
         createAttachment();
     }
 
+    @Test
+    @Description("Проверка HtmlElements")
+    public void test4() throws InterruptedException {
+        startURL().checkPage().search("hello world");
+    }
+
 
 }

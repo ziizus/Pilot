@@ -8,6 +8,9 @@ import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 import ru.yandex.qatools.htmlelements.element.HtmlElement;
+import ru.yandex.qatools.htmlelements.loader.decorator.HtmlElementDecorator;
+import ru.yandex.qatools.htmlelements.loader.decorator.HtmlElementLocatorFactory;
+
 import java.io.ByteArrayInputStream;
 
 public class SuperPageFactory extends HtmlElement {
@@ -27,7 +30,7 @@ public class SuperPageFactory extends HtmlElement {
     }
 
     static public void initElements(WebDriver newDriver, Object page){
-        PageFactory.initElements(newDriver, page);
+        PageFactory.initElements(new HtmlElementDecorator(new HtmlElementLocatorFactory(newDriver)), page);
     }
 
 

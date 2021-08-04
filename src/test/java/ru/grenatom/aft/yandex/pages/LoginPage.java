@@ -2,10 +2,10 @@ package ru.grenatom.aft.yandex.pages;
 
 
 import io.qameta.allure.Step;
-import org.apache.logging.log4j.Logger;
+
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+
+
 import org.openqa.selenium.support.FindBy;
 
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -13,6 +13,8 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import ru.grenatom.aft.base.SuperPageFactory;
 import ru.yandex.qatools.htmlelements.annotations.Name;
+import ru.yandex.qatools.htmlelements.element.Button;
+import ru.yandex.qatools.htmlelements.element.TextInput;
 
 
 public class LoginPage extends SuperPageFactory {
@@ -22,16 +24,21 @@ public class LoginPage extends SuperPageFactory {
     }
     @Name("Логин")
     @FindBy(id = "passp-field-login")
-    private WebElement loginInput;
+    private TextInput loginInput;
 
     @Name("Пароль")
     @FindBy(id = "passp-field-passwd")
-    private WebElement passwordInput;
+    private TextInput passwordInput;
 
     @Name("Войти")
     @FindBy(xpath = "//div[@class='passp-button passp-sign-in-button']/button")
-    private WebElement logOnButton;
+    private Button logOnButton;
 
+    private SearchArrow searchArrow;
+
+    public void search(String request) {
+        searchArrow.search(request);
+    }
 
 
     @Step("Ввести логин и пароль пользователя")
@@ -39,6 +46,7 @@ public class LoginPage extends SuperPageFactory {
         try {
             loginInput.sendKeys("user");
             loginInput.submit();
+
         } catch (Throwable ext) {
             Assert.fail("Ошибка при вводе логина и пароля");
         }
