@@ -22,7 +22,7 @@ public class ExcelWorker {
     public String readData (int row, int column ){
 
         sheet = wb.getSheet("data");
-        String data = sheet.getRow(row).getCell(column).getStringCellValue();
+        String data = sheet.getRow(row).getCell(column).toString();
         return data;
     }
 }

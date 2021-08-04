@@ -152,9 +152,8 @@ public class PositiveTests extends BaseTest {
     @Test
 
     public void test5() {
-        ExcelWorker excel = new ExcelWorker("//Selenium//Testdata.xlsx");
-        log.info(excel.readData(0,1));
-
+        ExcelWorker excel = new ExcelWorker("c:/Selenium/Testdata.xlsx");
+        log.info(excel.readData(1,1));
     }
 
 }
