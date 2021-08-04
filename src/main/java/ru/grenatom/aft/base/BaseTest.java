@@ -22,15 +22,13 @@ public class BaseTest {
 
 	protected void setUp(@Optional("chrome") String browser, @Optional("local") String environment, ITestContext ctx) {
 
-
 		// Create Driver
 		Assert.assertTrue(true, "[A]Starting setUp" );
 		try{
 			BrowserDriverFactory factory = new BrowserDriverFactory(browser);
 		}
 		catch(Throwable ext1) {
-
-			Assert.fail("[A]Ошибка", ext1);
+			Assert.fail("Ошибка", ext1);
 		}
 
 
@@ -40,8 +38,7 @@ public class BaseTest {
 				driver = factory.createDriverGrid();
 			}
 			catch(Throwable ext2) {
-				//log.info("[l]Ошибка при factory.createDriverGrid();: " + ext2.getMessage());
-				Assert.fail("[A]Ошибка", ext2);
+				Assert.fail("Ошибка", ext2);
 			}
 
 		} else {
@@ -50,18 +47,17 @@ public class BaseTest {
 				driver = factory.createDriver();
 			}
 			catch(Throwable ext2) {
-				//log.info("[l]Ошибка при factory.createDriverGrid();: " + ext2.getMessage());
-				Assert.fail("[A]Ошибка", ext2);
+				Assert.fail("Ошибка", ext2);
 			}
 		}
 
-		// maximize browser window
 		driver.manage().window().maximize();
 
-		// Set up test name and Logger
 		setCurrentThreadName();
+
 		String testName = ctx.getCurrentXmlTest().getName();
 		log = LogManager.getLogger(testName);
+
 		SuperPageFactory.setWebDriver(driver);
 		SuperPageFactory.setLoger(log);
 
@@ -70,9 +66,7 @@ public class BaseTest {
 
 	@AfterMethod(alwaysRun = true)
 	protected void tearDown() {
-		// Closing driver
 		log.info("[l]Closing driver");
-		Assert.assertTrue(true, "[A]Closing driver");
 		driver.quit();
 	}
 
@@ -101,7 +95,6 @@ public class BaseTest {
 		String content = "attachmentContent";
 		Allure.addAttachment("Screenshot:", new ByteArrayInputStream(((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES)));
 		return content.getBytes();
-
 	}
 
 }

@@ -13,6 +13,7 @@ import java.io.File;
 import autoitx4java.AutoItX;
 import com.jacob.com.LibraryLoader;
 import ru.grenatom.aft.yandex.pages.MainPage;
+import ru.grenatom.aft.yandex.poi.ExcelWorker;
 
 
 public class PositiveTests extends BaseTest {
@@ -148,5 +149,12 @@ public class PositiveTests extends BaseTest {
         startMainURL().checkPage().search("hello world!!").checkPage().clickClearButton().search("Hi!").checkPage();
     }
 
+    @Test
+
+    public void test5() {
+        ExcelWorker excel = new ExcelWorker("//Selenium//Testdata.xlsx");
+        log.info(excel.readData(0,1));
+
+    }
 
 }
