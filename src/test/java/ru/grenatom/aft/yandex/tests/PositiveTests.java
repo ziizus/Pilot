@@ -12,7 +12,7 @@ import ru.grenatom.aft.base.BaseTest;
 import java.io.File;
 import autoitx4java.AutoItX;
 import com.jacob.com.LibraryLoader;
-
+import ru.grenatom.aft.yandex.pages.MainPage;
 
 
 public class PositiveTests extends BaseTest {
@@ -42,17 +42,25 @@ public class PositiveTests extends BaseTest {
 
     }
 
-    @Step("Открытие ссылки")
-    protected LoginPage startURL() {
+    @Step("Открытие ссылки для ввода формы авторизации")
+    protected LoginPage startPassportURL() {
         String url = "https://passport.yandex.ru";
         driver.get(url);
        return new LoginPage();
     }
 
+    @Step("Открытие ссылки на главную страницу")
+    protected MainPage startMainURL() {
+        String url = "https://yandex.ru";
+        driver.get(url);
+        return new MainPage();
+    }
+
+
     @Step("Вход в систему 2-ым способом")
     @Description("Вход в систему 2-ым способом")
     protected void Login2() {
-        startURL().checkPage().login();
+        startPassportURL().checkPage().login();
     }
 
 
@@ -137,7 +145,7 @@ public class PositiveTests extends BaseTest {
     @Test
     @Description("Проверка HtmlElements")
     public void test4() throws InterruptedException {
-        startURL().checkPage().search("hello world");
+        startMainURL().checkPage().search("hello world!!").checkPage().clickClearButton().search("Hi!").checkPage();
     }
 
 
