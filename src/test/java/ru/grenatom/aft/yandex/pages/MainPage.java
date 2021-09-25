@@ -9,11 +9,14 @@ import org.openqa.selenium.support.ui.FluentWait;
 import org.testng.Assert;
 import ru.grenatom.aft.base.SuperPageFactory;
 import ru.grenatom.aft.yandex.blocks.SearchArrow;
+import ru.grenatom.aft.yandex.elements.SearchResultRow;
 import ru.yandex.qatools.htmlelements.annotations.Name;
 
 public class MainPage extends SuperPageFactory {
 
     private SearchArrow searchArrow;
+
+
 
     @Name("Сейчас в СМИ")
     @FindBy(xpath="//a[@id='news_tab_news']")
@@ -31,8 +34,8 @@ public class MainPage extends SuperPageFactory {
             createAttachment();
             return this;
         } catch (Throwable ext) {
-            Assert.fail( "Главная страница не открыта. Ошибка:" + ext.getMessage() );
             createAttachment();
+            Assert.fail( "Главная страница не открыта. Ошибка:" + ext.getMessage() );
             return null;
         }
 
@@ -42,5 +45,7 @@ public class MainPage extends SuperPageFactory {
     public SearchResults search(String request) {
         return searchArrow.search(request);
     }
+
+
 
 }

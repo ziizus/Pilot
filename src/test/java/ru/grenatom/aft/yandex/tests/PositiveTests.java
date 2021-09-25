@@ -156,4 +156,8 @@ public class PositiveTests extends BaseTest {
         log.info(excel.readData(1,1));
     }
 
+    @Test
+    public void test6() throws InterruptedException{
+        startMainURL().checkPage().search("hi!").checkPage().getSearchResultFirstRowText();
+    }
 }

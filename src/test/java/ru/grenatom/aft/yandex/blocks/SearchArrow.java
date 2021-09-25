@@ -37,8 +37,8 @@ public class SearchArrow extends SuperPageFactory {
             createAttachment();
             return new SearchResults();
         } catch (Throwable ext) {
-            Assert.fail("Ошибка при вводе данных поиска:" + ext.getLocalizedMessage());
             createAttachment();
+            Assert.fail("Ошибка при вводе данных поиска:" + ext.getLocalizedMessage());
             return null;
         }
     }
@@ -47,10 +47,11 @@ public class SearchArrow extends SuperPageFactory {
     public SearchArrow clickClearButton(){
         try {
             clearButton.click();
+            createAttachment();
             return this;
         } catch (Throwable ext) {
-            Assert.fail("Ошибка при очистке поля поиска" + ext.getLocalizedMessage());
             createAttachment();
+            Assert.fail("Ошибка при очистке поля поиска" + ext.getLocalizedMessage());
             return null;
         }
 

@@ -9,10 +9,14 @@ import org.openqa.selenium.support.ui.FluentWait;
 import org.testng.Assert;
 import ru.grenatom.aft.base.SuperPageFactory;
 import ru.grenatom.aft.yandex.blocks.SearchArrow;
+import ru.grenatom.aft.yandex.elements.SearchResultRow;
 import ru.yandex.qatools.htmlelements.annotations.Name;
 
 public class SearchResults extends SuperPageFactory {
     private SearchArrow searchArrow;
+
+    @FindBy(xpath = "//ul[@id='search-result']//li[@data-cid][2]")
+    private SearchResultRow row1;
 
     @FindBy(className = "main__content")
     @Name("Результаты поиска")
@@ -42,5 +46,9 @@ public class SearchResults extends SuperPageFactory {
     public SearchResults clickClearButton() {
             searchArrow.clickClearButton();
             return this;
+    }
+
+    public void getSearchResultFirstRowText(){
+        log.info(row1.getLinkText());
     }
 }
