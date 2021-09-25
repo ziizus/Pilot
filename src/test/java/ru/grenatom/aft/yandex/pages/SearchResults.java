@@ -12,14 +12,17 @@ import ru.grenatom.aft.yandex.blocks.SearchArrow;
 import ru.grenatom.aft.yandex.elements.SearchResultRow;
 import ru.yandex.qatools.htmlelements.annotations.Name;
 
+//Страница с результатами поиска
 public class SearchResults extends SuperPageFactory {
     private SearchArrow searchArrow;
 
+    @Name("Первая найденная строка списка с результатами поиска")
     @FindBy(xpath = "//ul[@id='search-result']//li[@data-cid][2]")
     private SearchResultRow row1;
 
-    @FindBy(className = "main__content")
+
     @Name("Результаты поиска")
+    @FindBy(className = "main__content")
     private WebElement mainContent;
 
     public SearchResults() {
@@ -33,8 +36,8 @@ public class SearchResults extends SuperPageFactory {
             createAttachment();
             return this;
         } catch (Throwable ext) {
-            Assert.fail( "Не открыт список с результатами поиска. Ошибка:" + ext.getMessage() );
             createAttachment();
+            Assert.fail( "Не открыт список с результатами поиска. Ошибка:" + ext.getMessage() );
             return null;
         }
 

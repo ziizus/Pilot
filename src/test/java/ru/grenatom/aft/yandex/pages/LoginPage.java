@@ -35,6 +35,7 @@ public class LoginPage extends SuperPageFactory {
     @FindBy(xpath = "//div[@class='passp-button passp-sign-in-button']/button")
     private Button logOnButton;
 
+    //
     private SearchArrow searchArrow;
 
     public void search(String request) {
