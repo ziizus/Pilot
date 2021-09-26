@@ -38,13 +38,13 @@ public class LoginPage extends SuperPageFactory {
     //
     private SearchArrow searchArrow;
 
-    public void search(String request) {
+    public void Search(String request) {
         searchArrow.search(request);
     }
 
 
     @Step("Ввести логин и пароль пользователя")
-    public void login() {
+    public void Login() {
         try {
             loginInput.sendKeys("user");
             loginInput.submit();
@@ -55,7 +55,7 @@ public class LoginPage extends SuperPageFactory {
     }
 
     @Step("Проверить, что страница логина открыта")
-    public LoginPage checkPage() {
+    public LoginPage CheckPage() {
         try {
             WebDriverWait wait = new WebDriverWait(getDriver(), 10);
             wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@class='passp-button passp-sign-in-button']/button") ));

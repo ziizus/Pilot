@@ -37,8 +37,8 @@ public class PositiveTests extends BaseTest {
         driver.get(url);
 
         LoginPage loginPage = new LoginPage();
-        loginPage.checkPage();
-        loginPage.login();
+        loginPage.CheckPage();
+        loginPage.Login();
 
 
     }
@@ -61,7 +61,7 @@ public class PositiveTests extends BaseTest {
     @Step("Вход в систему 2-ым способом")
     @Description("Вход в систему 2-ым способом")
     protected void Login2() {
-        startPassportURL().checkPage().login();
+        startPassportURL().CheckPage().Login();
     }
 
 
@@ -158,6 +158,6 @@ public class PositiveTests extends BaseTest {
 
     @Test
     public void test6() throws InterruptedException{
-        startMainURL().checkPage().search("hi!").checkPage().getSearchResultFirstRowText();
+        startMainURL().checkPage().search("hi!").checkPage().clickToSearchResultFirstRow().CheckPage();
     }
 }

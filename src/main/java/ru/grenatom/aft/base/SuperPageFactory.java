@@ -26,6 +26,8 @@ public class SuperPageFactory extends HtmlElement {
         log = newLog;
     }
 
+    static public Logger getLogger(){return log;}
+
     static public void setDriver(WebDriver newDriver) {
         driver = newDriver;
     }

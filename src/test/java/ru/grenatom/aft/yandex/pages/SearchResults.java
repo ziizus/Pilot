@@ -18,7 +18,7 @@ public class SearchResults extends SuperPageFactory {
 
     @Name("Первая найденная строка списка с результатами поиска")
     @FindBy(xpath = "//ul[@id='search-result']//li[@data-cid][2]")
-    private SearchResultRow row1;
+    private SearchResultRow firstRowOnSearchResultsList;
 
 
     @Name("Результаты поиска")
@@ -32,8 +32,9 @@ public class SearchResults extends SuperPageFactory {
     @Step("Проверить открытие списка с результатами поиска")
     public SearchResults checkPage(){
         try {
-            Assert.assertTrue(new FluentWait<WebDriver>(getDriver()).until(ExpectedConditions.elementToBeClickable(mainContent)).isDisplayed(), "Открыт список с результатами поиска");
+            Assert.assertTrue(new FluentWait<WebDriver>(getDriver()).until(ExpectedConditions.elementToBeClickable(firstRowOnSearchResultsList)).isDisplayed(), "Открыт список с результатами поиска");
             createAttachment();
+            log.info("Открыт список с результатами поиска");
             return this;
         } catch (Throwable ext) {
             createAttachment();
@@ -52,6 +53,11 @@ public class SearchResults extends SuperPageFactory {
     }
 
     public void getSearchResultFirstRowText(){
-        log.info(row1.getLinkText());
+        log.info(firstRowOnSearchResultsList.getLinkText());
+    }
+
+    public WikiHi clickToSearchResultFirstRow(){
+        firstRowOnSearchResultsList.click();
+        return new WikiHi();
     }
 }
