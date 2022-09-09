@@ -1,4 +1,4 @@
-package ru.grenatom.aft.yandex.pages;
+package ru.ziizus.yandex.pages;
 
 
 import io.qameta.allure.Step;
@@ -12,7 +12,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import ru.grenatom.aft.base.SuperPageFactory;
-import ru.grenatom.aft.yandex.blocks.SearchArrow;
+import ru.ziizus.yandex.blocks.SearchArrow;
 import ru.yandex.qatools.htmlelements.annotations.Name;
 import ru.yandex.qatools.htmlelements.element.Button;
 import ru.yandex.qatools.htmlelements.element.TextInput;

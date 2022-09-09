@@ -1,4 +1,4 @@
-package ru.grenatom.aft.yandex.poi;
+package ru.ziizus.yandex.poi;
 
 import java.io.FileInputStream;
 
