@@ -1,4 +1,4 @@
-package ru.grenatom.aft.base;
+package ru.ziizus.base;
 
 import java.io.ByteArrayInputStream;
 import io.qameta.allure.Allure;

@@ -3,7 +3,7 @@ package ru.ziizus.yandex.blocks;
 import io.qameta.allure.Step;
 import org.openqa.selenium.support.FindBy;
 import org.testng.Assert;
-import ru.grenatom.aft.base.SuperPageFactory;
+import ru.ziizus.base.SuperPageFactory;
 import ru.ziizus.yandex.pages.SearchResults;
 import ru.yandex.qatools.htmlelements.annotations.Name;
 import ru.yandex.qatools.htmlelements.element.Button;

@@ -1,4 +1,4 @@
-package ru.grenatom.aft.base;
+package ru.ziizus.base;
 
 import io.qameta.allure.Allure;
 import io.qameta.allure.Attachment;

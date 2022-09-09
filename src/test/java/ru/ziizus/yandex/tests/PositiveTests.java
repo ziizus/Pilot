@@ -8,7 +8,7 @@ import org.testng.annotations.Optional;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 import ru.ziizus.yandex.pages.LoginPage;
-import ru.grenatom.aft.base.BaseTest;
+import ru.ziizus.base.BaseTest;
 import java.io.File;
 import autoitx4java.AutoItX;
 import com.jacob.com.LibraryLoader;
