@@ -1,4 +1,4 @@
-package ru.Annotations;
+package ru.ziizus.annotations;
 
 
 

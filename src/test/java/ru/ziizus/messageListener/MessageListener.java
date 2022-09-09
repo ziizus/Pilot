@@ -1,4 +1,4 @@
-package ru.MessageListener;
+package ru.ziizus.messageListener;
 
 import com.vk.api.sdk.client.TransportClient;
 import com.vk.api.sdk.client.VkApiClient;

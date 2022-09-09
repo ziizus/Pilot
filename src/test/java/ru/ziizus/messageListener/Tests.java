@@ -1,4 +1,4 @@
-package ru.MessageListener;
+package ru.ziizus.messageListener;
 
 import org.testng.annotations.Test;
 

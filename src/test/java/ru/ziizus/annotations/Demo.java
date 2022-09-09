@@ -1,10 +1,10 @@
-package ru.Annotations;
+package ru.ziizus.annotations;
 
 import org.testng.annotations.Test;
 
 public class Demo {
     private class MyClass{
-        @ru.Annotations.Test(expected = Test.class)
+        @ru.ziizus.annotations.Test(expected = Test.class)
         public void function(){
             System.out.println("MyClass#function1");
         }

@@ -1,4 +1,4 @@
-package ru.Annotations;
+package ru.ziizus.annotations;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
