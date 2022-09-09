@@ -1,4 +1,4 @@
-package ru.grenatom.aft.yandex.tests;
+package ru.ziizus.yandex.tests;
 
 import io.qameta.allure.Description;
 import io.qameta.allure.Step;
@@ -7,13 +7,13 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Optional;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
-import ru.grenatom.aft.yandex.pages.LoginPage;
+import ru.ziizus.yandex.pages.LoginPage;
 import ru.grenatom.aft.base.BaseTest;
 import java.io.File;
 import autoitx4java.AutoItX;
 import com.jacob.com.LibraryLoader;
-import ru.grenatom.aft.yandex.pages.MainPage;
-import ru.grenatom.aft.yandex.poi.ExcelWorker;
+import ru.ziizus.yandex.pages.MainPage;
+import ru.ziizus.yandex.poi.ExcelWorker;
 
 
 public class PositiveTests extends BaseTest {

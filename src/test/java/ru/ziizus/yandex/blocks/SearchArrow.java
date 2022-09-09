@@ -1,13 +1,10 @@
-package ru.grenatom.aft.yandex.blocks;
+package ru.ziizus.yandex.blocks;
 
 import io.qameta.allure.Step;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.FluentWait;
 import org.testng.Assert;
 import ru.grenatom.aft.base.SuperPageFactory;
-import ru.grenatom.aft.yandex.pages.SearchResults;
+import ru.ziizus.yandex.pages.SearchResults;
 import ru.yandex.qatools.htmlelements.annotations.Name;
 import ru.yandex.qatools.htmlelements.element.Button;
 import ru.yandex.qatools.htmlelements.element.TextInput;

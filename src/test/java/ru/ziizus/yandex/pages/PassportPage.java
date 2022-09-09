@@ -1,4 +1,4 @@
-package ru.grenatom.aft.yandex.pages;
+package ru.ziizus.yandex.pages;
 
 import io.qameta.allure.Step;
 import org.openqa.selenium.WebDriver;
